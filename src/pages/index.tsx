@@ -62,7 +62,7 @@ const Home: NextPage = () => {
             style={{
               border: "1px solid " + backColor,
               height: "100%",
-              width: "80%",
+              width: "100%",
             }}
           >
             <img src={src} />
