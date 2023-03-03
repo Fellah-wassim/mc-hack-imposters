@@ -5,7 +5,7 @@ import Header from "../components/Header";
 
 const Home: NextPage = () => {
   return (
-    <div className="text-red-500">
+    <div>
       <Header title="Dashboard" />
     </div>
   );
