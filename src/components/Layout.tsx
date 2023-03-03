@@ -115,9 +115,10 @@ const Layout: React.FC<Props> = ({ children }) => {
             )}
           </div>
         </div>
-        {SIDEMENU.map(({ Icon, name, route }) => {
+        {SIDEMENU.map(({ Icon, name, route }, index) => {
           return (
             <Link
+              key={index}
               href={route}
               className={`px-2 py-4 flex text-white gap-4 items-center w-full ${
                 route === router.pathname
