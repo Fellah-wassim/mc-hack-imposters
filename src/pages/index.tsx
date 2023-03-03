@@ -10,7 +10,11 @@ const Home: NextPage = () => {
       router.replace("/auth/login");
     }
   }, []);
-  return <div className="text-red-500">You are in home page</div>;
+  return (
+    <div className="text-red-500">
+      <p>Home</p>
+    </div>
+  );
 };
 
 export default Home;
