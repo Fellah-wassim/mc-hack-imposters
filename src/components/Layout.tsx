@@ -99,14 +99,14 @@ const Layout: React.FC<Props> = ({ children }) => {
               className="text-white cursor-pointer"
             />
             {isOpen && (
-              <div className="bg-white w-40 absolute top-[120%]">
-                <div className="p-2 hover:bg-gray-100 transition flex items-center gap-x-2">
+              <div className="text-gray-800 bg-white w-40 absolute top-[120%]">
+                <div className="px-2 py-3 hover:bg-gray-100 transition flex items-center gap-x-2">
                   <BiUser />
                   <p className="text-sm">My profile</p>
                 </div>
                 <div
                   onClick={logOutHandler}
-                  className="p-2 hover:bg-gray-100 transition flex items-center gap-x-2"
+                  className="px-2 py-3 hover:bg-gray-100 transition flex items-center gap-x-2"
                 >
                   <RiLogoutBoxRLine />
                   <p className="text-sm">Logout</p>
@@ -133,8 +133,8 @@ const Layout: React.FC<Props> = ({ children }) => {
         })}
         <div className="h-[1px] w-full bg-gray-500"></div>
       </div>
-      <div className="h-full col-span-4 w-full flex justify-center">
-        <div className="max-w-screen-xl w-full p-4">{children}</div>
+      <div className="h-full col-span-4 w-full flex overflow-auto justify-center">
+        <div className="max-w-screen-xl w-full p-4 h-full">{children}</div>
       </div>
     </div>
   );
