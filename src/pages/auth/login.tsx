@@ -33,13 +33,6 @@ const Login: NextPage = () => {
     router.replace("/");
   };
 
-  useEffect(() => {
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
-    if (isLoggedIn) {
-      router.replace("/");
-    }
-  }, []);
-
   return (
     <div className="grid grid-cols-1 font-serif md:grid-cols-2 h-screen w-full">
       <div className="relative">

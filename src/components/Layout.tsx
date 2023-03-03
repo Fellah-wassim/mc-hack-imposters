@@ -54,6 +54,15 @@ const Layout: React.FC<Props> = ({ children }) => {
     });
   }, []);
 
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (!isLoggedIn && router.pathname !== "/auth/login") {
+      router.replace("/auth/login");
+    } else if (isLoggedIn && router.pathname === "/auth/login") {
+      router.replace("/");
+    }
+  }, [router.pathname]);
+
   if (router && router.pathname === "/auth/login") {
     return <>{children}</>;
   }
