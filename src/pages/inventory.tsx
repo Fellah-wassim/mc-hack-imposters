@@ -1,14 +1,15 @@
 import { NextPage } from "next";
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import { TableColumn } from "react-data-table-component/dist/src/DataTable/types";
 import dynamic from "next/dynamic";
+import ChartPopUp from "../components/Charts/ChartPopUp";
 
 const DataTable = dynamic(() => import("react-data-table-component"), {
   ssr: false,
 });
 
-type Row = {
+export type Row = {
   name: string;
   id: string;
   group: string;
@@ -108,17 +109,28 @@ const data: Row[] = [
 ];
 
 const Inventory: NextPage = () => {
+  const [selectedRow, setSelectedRow] = useState<Row | null>(null);
   return (
-    <div>
+    <div className="relative">
       <Header title="Inventory" />
-      <div className="my-4">
+      <div className="my-4 shadow">
         <DataTable
           columns={columns as any}
           data={data}
+          onRowClicked={(row) => setSelectedRow(row as Row)}
           pagination
           paginationPerPage={7}
           paginationRowsPerPageOptions={[7, 10, 15, 20]}
+          className="cursor-pointer"
         />
+        {selectedRow && (
+          <div className="absolute top-0 bottom-0 h-full w-full bg-white">
+            <ChartPopUp
+              data={selectedRow}
+              closePopUp={() => setSelectedRow(null)}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

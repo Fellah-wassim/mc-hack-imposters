@@ -133,7 +133,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         })}
         <div className="h-[1px] w-full bg-gray-500"></div>
       </div>
-      <div className="h-full col-span-4 w-full flex overflow-auto justify-center">
+      <div className="h-full bg-gray-50 col-span-4 w-full flex overflow-auto justify-center">
         <div className="max-w-screen-xl w-full p-4 h-full">{children}</div>
       </div>
     </div>

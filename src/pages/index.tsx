@@ -54,13 +54,13 @@ const Home: NextPage = () => {
   return (
     <div>
       <Header title="Dashboard" />
-      <div className="grid grid-cols-4 justify-items-center items-center p-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:grid-cols-4 justify-items-center items-center p-6">
         {TABS.map(({ src, link, text, color, backColor, name }, index) => (
           <div
             key={index}
             className="flex flex-col justify-end items-center gap-2 rounded pt-2"
             style={{
-              border: "1px solid" + backColor,
+              border: "1px solid " + backColor,
               height: "100%",
               width: "80%",
             }}
