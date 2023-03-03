@@ -69,7 +69,7 @@ const Home: NextPage = () => {
             <div className="flex flex-col items-center font-extrabold text-lg text-gray-900">
               {name}
             </div>
-            <p>{text}</p>
+            <p className="text-center">{text}</p>
             <div
               className="w-full hover:opacity-60 transition"
               style={{ backgroundColor: backColor }}
