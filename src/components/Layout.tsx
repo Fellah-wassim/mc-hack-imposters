@@ -85,7 +85,7 @@ const Layout: React.FC<Props> = ({ children }) => {
   }
   return (
     <div className="grid grid-cols-4 lg:grid-cols-5 h-screen">
-      <div className="col-span-1 hidden lg:block bg-gray-700 h-full">
+      <div className="col-span-1 lg:flex flex-col hidden  bg-gray-700 h-full">
         <div className="bg-gray-800 p-2">
           <div className="flex items-center md:justify-start justify-center w-full">
             <Image
@@ -132,24 +132,56 @@ const Layout: React.FC<Props> = ({ children }) => {
             )}
           </div>
         </div>
-        {SIDEMENU.map(({ Icon, name, route }, index) => {
-          return (
-            <Link
-              key={index}
-              href={route}
-              className={`px-2 py-4 flex text-white gap-4 items-center w-full ${
-                route === router.pathname
-                  ? "bg-primary hover:bg-opacity-95"
-                  : "hover:bg-gray-800"
-              } ${
-                index % 4 === 3 ? "border-b border-b-gray-800" : ""
-              } transition cursor-pointer`}
-            >
-              <Icon />
-              <p className="text-white text-sm">{name}</p>
-            </Link>
-          );
-        })}
+        <div className="flex flex-col justify-between h-full">
+          <div>
+            {SIDEMENU.slice(0, 4).map(({ Icon, name, route }, index) => {
+              return (
+                <Link
+                  key={index}
+                  href={route}
+                  className={`px-2 py-4 flex text-white gap-4 items-center w-full ${
+                    route === router.pathname
+                      ? "bg-primary hover:bg-opacity-95"
+                      : "hover:bg-gray-800"
+                  } ${
+                    index % 4 === 3 ? "border-b border-b-gray-600" : ""
+                  }  transition cursor-pointer`}
+                >
+                  <Icon />
+                  <p className="text-white text-sm">{name}</p>
+                </Link>
+              );
+            })}
+          </div>
+          <div>
+            {SIDEMENU.slice(4).map(({ Icon, name, route }, index) => {
+              return (
+                <Link
+                  key={index}
+                  href={route}
+                  className={`px-2 py-4 flex text-white gap-4 items-center w-full ${
+                    route === router.pathname
+                      ? "bg-primary hover:bg-opacity-95"
+                      : "hover:bg-gray-800"
+                  } ${
+                    index % 4 === 3 ? "border-b border-b-gray-600" : ""
+                  }  transition cursor-pointer`}
+                >
+                  <Icon />
+                  <p className="text-white text-sm">{name}</p>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+        <div className="flex items-center bg-gray-800 text-xs text-white justify-between  p-2">
+          <p>
+            Powered by{" "}
+            <span className="cursor-pointer hover:underline ">Imposters</span>{" "}
+            2023
+          </p>
+          <span>v 1.2</span>
+        </div>
       </div>
       <div className="h-full bg-gray-50 col-span-4 w-full flex overflow-auto justify-center">
         <div className="max-w-screen-xl w-full p-4 h-full">{children}</div>

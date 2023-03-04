@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import { TableColumn } from "react-data-table-component/dist/src/DataTable/types";
 import dynamic from "next/dynamic";
 import ChartPopUp from "../components/Charts/ChartPopUp";
-
+import { AiOutlineAppstoreAdd, AiOutlinePlus } from "react-icons/ai";
 const DataTable = dynamic(() => import("react-data-table-component"), {
   ssr: false,
 });
@@ -113,6 +113,16 @@ const Inventory: NextPage = () => {
   return (
     <div className="relative">
       <Header title="Inventory" />
+      <div className="mt-4 flex items-center justify-between">
+        <input
+          className="px-4 py-2 border text-sm w-full max-w-xs outline-none"
+          placeholder="Search Medicine Inventory"
+        />
+        <button className="bg-primary flex items-center gap-2 hover:bg-opacity-90 transition text-sm text-white px-4 py-2 rounded">
+          Add Medicine
+          <AiOutlinePlus />
+        </button>
+      </div>
       <div className="my-4 shadow">
         <DataTable
           columns={columns as any}
