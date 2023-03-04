@@ -58,7 +58,7 @@ const Home: NextPage = () => {
         {TABS.map(({ src, link, text, color, backColor, name }, index) => (
           <div
             key={index}
-            className="flex flex-col justify-end items-center gap-2 rounded pt-2"
+            className="flex flex-col bg-white justify-end items-center gap-2 rounded pt-2"
             style={{
               border: "1px solid " + backColor,
               height: "100%",

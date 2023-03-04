@@ -7,7 +7,9 @@ import { MdOutlineInventory2, MdOutlineSpaceDashboard } from "react-icons/md";
 import { TfiStatsUp } from "react-icons/tfi";
 import { GoSettings } from "react-icons/go";
 import { BiUser } from "react-icons/bi";
-import { RiLogoutBoxRLine } from "react-icons/ri";
+import { RiLogoutBoxRLine, RiNotification2Fill } from "react-icons/ri";
+import { BsVirus2 } from "react-icons/bs";
+import { FiHelpCircle } from "react-icons/fi";
 
 type Props = {
   children: React.ReactNode;
@@ -33,6 +35,21 @@ const SIDEMENU = [
     name: "Configuration",
     Icon: GoSettings,
     route: "/config",
+  },
+  {
+    name: "Notifications",
+    Icon: RiNotification2Fill,
+    route: "/notifications",
+  },
+  {
+    name: "Covid 19",
+    Icon: BsVirus2,
+    route: "/covid",
+  },
+  {
+    name: "Get Technical Help",
+    Icon: FiHelpCircle,
+    route: "/help",
   },
 ];
 
@@ -124,6 +141,8 @@ const Layout: React.FC<Props> = ({ children }) => {
                 route === router.pathname
                   ? "bg-primary hover:bg-opacity-95"
                   : "hover:bg-gray-800"
+              } ${
+                index % 4 === 3 ? "border-b border-b-gray-800" : ""
               } transition cursor-pointer`}
             >
               <Icon />
@@ -131,7 +150,6 @@ const Layout: React.FC<Props> = ({ children }) => {
             </Link>
           );
         })}
-        <div className="h-[1px] w-full bg-gray-500"></div>
       </div>
       <div className="h-full bg-gray-50 col-span-4 w-full flex overflow-auto justify-center">
         <div className="max-w-screen-xl w-full p-4 h-full">{children}</div>
